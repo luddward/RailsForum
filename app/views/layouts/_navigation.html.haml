@@ -11,42 +11,38 @@
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav
       %li.active
-        %a{href: "#"} Link
+        %a{href: "#"} About
       %li
-        %a{href: "#"} Link
+        %a{href: "#"} Donate
       %li.dropdown
         %a.dropdown-toggle{'data-toggle' => 'dropdown', href: "#"}
-          Dropdown
+          Forum
           %b.caret
         %ul.dropdown-menu
           %li
-            %a{href: "#"} Action
+            %a{href: "#"} New Post
           %li
-            %a{href: "#"} Another action
+            %a{href: "#"} Your Posts
           %li
             %a{href: "#"} Something else here
           %li
             %a{href: "#"} Separated link
           %li
             %a{href: "#"} One more separated link
-    %form.navbar-form.navbar-left{role: 'search'}
-      .form-group
-        %input.form-control{placeholder: 'Search', type: 'text'}/
-      %button.btn.btn-default{type: "submit"} Submit
     %ul.nav.navbar-nav.navbar-right
-      %li
-        %a{href: "#"} Link
-      %li.dropdown
-        %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
-          Dropdown
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            %a{href: "#"} Action
-          %li
-            %a{href: "#"} Another action
-          %li
-            %a{href: "#"} Something else here
-          %li
-            %a{href: "#"} Separated link
+      - if user_signed_in?
+        %li.dropdown
+          %a.dropdown-toggle{'data-toggle' => 'dropdown',href: '#'}
+            = current_user.username
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{href: '#'} Profile
+            %li
+              = link_to('Logout', destroy_user_session_path, :method => :delete)
 
+      - else
+        %li
+          = link_to('Login', new_user_session_path)
+        %li
+          = link_to('Register', new_user_registration_path)
