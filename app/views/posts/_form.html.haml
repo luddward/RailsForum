@@ -1,4 +1,4 @@
 = simple_form_for @post do |f|
-  = f.input :title
-  = f.input :content
-  = f.submit :class => "btn btn-default"
+  = f.input :title, :placeholder => 'Topic'
+  = f.input :content, :placeholder => 'What would you like to talk about?'
+  = f.submit :class => "btn btn-primary"
