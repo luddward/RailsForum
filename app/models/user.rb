@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :authentication_keys => [:login]
 
   has_many :posts
+  has_many :comments
 
   validate :validate_username
 
