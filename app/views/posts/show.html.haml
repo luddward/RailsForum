@@ -1,13 +1,24 @@
-%h1= @post.title
-%p= @post.content
+.panel.panel-default
 
-#comments
-  %h2= @post.comments.count
-  = render @post.comments
+  .panel-body
+    %h2= @post.title
+    %p= @post.content
 
-  %h3 Reply to thread
-  = render 'comments/form'
+    %small
+      = time_ago_in_words(@post.created_at)
+      ago by
+      = @post.user.username
 
-= link_to 'Edit', edit_post_path(@post)
-= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
-= link_to 'Home', root_path
+    = link_to 'Edit', edit_post_path(@post)
+
+    = link_to 'Delete', post_path(@post),
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' }
+
+
+    %hr
+    = render @post.comments
+
+  .panel-footer
+    %h3 Reply to thread
+    = render 'comments/form'

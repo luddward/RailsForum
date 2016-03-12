@@ -1,5 +1,13 @@
 .comment
   %p= comment.comment
-  %p= comment.user.username
-  = link_to 'Edit', edit_post_comment_path(comment.post, comment)
-  = link_to 'Delete Reply', [comment.post, comment], method:  :delete, data: {confirm: 'Are you sure?'}
+  %small
+    = time_ago_in_words(comment.created_at)
+    ago by
+    = comment.user.username
+
+  = link_to 'Edit',
+         edit_post_comment_path(comment.post, comment)
+  = link_to 'Delete', [comment.post, comment],
+         method:  :delete, data: {confirm: 'Are you sure?'}
+
+%hr
