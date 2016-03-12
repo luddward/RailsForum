@@ -20,15 +20,7 @@
           %b.caret
         %ul.dropdown-menu
           %li
-            %a{href: "#"} New Post
-          %li
-            %a{href: "#"} Your Posts
-          %li
-            %a{href: "#"} Something else here
-          %li
-            %a{href: "#"} Separated link
-          %li
-            %a{href: "#"} One more separated link
+            = link_to 'New Post', new_post_path
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         %li.dropdown
