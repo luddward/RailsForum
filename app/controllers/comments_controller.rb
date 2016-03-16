@@ -46,7 +46,6 @@ class CommentsController < ApplicationController
   def validate_user
     unless current_user == @comment.user
       redirect_to(post_path(@post), alert: 'You are not allowed to do that')
-      return
     end
   end
 
