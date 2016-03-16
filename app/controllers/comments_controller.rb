@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
 
+  before_action :find_comment, except: :create
+
   before_action :authenticate_user!, except: [:index, :show]
+
+  before_action :validate_user, except: :create
 
   def create
     @post = Post.find(params[:post_id])
@@ -16,19 +20,10 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
 
-    unless current_user == @comment.user
-      redirect_to(post_path(@post), notice: 'You cannot edit this comment')
-      return
-    end
   end
 
   def update
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-
     if @comment.update(params[:comment].permit(:comment))
       redirect_to post_path(@post)
     else
@@ -37,14 +32,22 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    unless current_user == @comment.user
-      redirect_to(post_path(@post), alert: 'You cannot delete this comment')
-      return
-    end
     @comment.destroy
     redirect_to post_path(@post)
+  end
+
+  private
+
+  def find_comment
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
+  def validate_user
+    unless current_user == @comment.user
+      redirect_to(post_path(@post), alert: 'You are not allowed to do that')
+      return
+    end
   end
 
 end
