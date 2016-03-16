@@ -1,0 +1,14 @@
+%h1= @category.name
+%hr
+
+- @category.posts.each do |post|
+  %h2= link_to post.title, post_path(post)
+
+  %p
+    Replies:
+    = post.comments.count
+  %p
+    Latest reply by
+    = post.comments.last.user.username
+
+  %hr

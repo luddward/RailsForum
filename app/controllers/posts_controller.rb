@@ -16,10 +16,12 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
+    @categories = Category.all
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.category.id = params[:category]
 
     if @post.save
       redirect_to @post
@@ -46,14 +48,17 @@ class PostsController < ApplicationController
 
   private
 
+  # Finds a post
   def find_post
     @post = Post.find(params[:id])
   end
 
+  # Required parameters to create a post
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :category_id)
   end
 
+  # Validates a user
   def validate_user
     unless current_user == @post.user
       redirect_to post_path(@post), alert: 'You are not allowed to do that!'
