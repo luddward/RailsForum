@@ -25,7 +25,10 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    unless current_user == @post.user
+      redirect_to post_path(@post), notice: 'You cannot edit other users posts'
+      return
+    end
   end
 
   def update
@@ -37,6 +40,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    unless current_user == @post.user
+      redirect_to post_path(@post), alert: 'You cannot delete other peoples threads'
+      return
+    end
     @post.destroy
     redirect_to root_path
   end
