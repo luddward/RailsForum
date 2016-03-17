@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  before_action find_category, except: [:index, :new, :create]
+  before_action :find_category, except: [:index, :new, :create]
 
   def index
     @categories = Category.all.order('name DESC')
@@ -28,7 +28,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to category_path(@category), notice: 'You sucessfully updated the category'
+      redirect_to category_path(@category), notice: 'You successfully updated the category'
     else
       render 'categories/edit'
     end
