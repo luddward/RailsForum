@@ -1,9 +1,28 @@
 
-- @categories.each do |category|
-  .panel.panel-default
-    .panel-heading
-      %h3.panel-title= link_to category.name, category_path(category)
-    .panel-body
-      %p
-        Topics:
-        = category.posts.count
+%h2 Forum
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Category
+      %th Topics
+      %th Posts
+      %th Latest
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %th
+          = link_to category.name, category_path(category)
+        %th
+          = category.posts.count
+        %th
+          = 100 + 10
+        %th
+          - if category.posts.count > 0
+            - @post = category.posts.last
+            = link_to @post.title, post_path(@post)
+            %p
+              by
+              = @post.user.username
+          - else
+            0

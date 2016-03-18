@@ -7,12 +7,15 @@
   = csrf_meta_tags
 %body
 
-  .container
-    = render :partial => 'layouts/navigation'
 
-    .jumbotron
-      %h1 Furious Legion
-      %p
-        A BlackDesert game guild!
-    = render :partial => 'layouts/messages'
-    = yield
+
+  #wrapper
+    = render :partial => 'layouts/sidebar'
+
+
+    #page-content-wrapper
+      .container-fluid
+        = render :partial => 'layouts/messages'
+
+
+        = yield

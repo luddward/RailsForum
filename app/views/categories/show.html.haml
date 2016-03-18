@@ -9,6 +9,7 @@
     = post.comments.count
   %p
     Latest reply by
-    = post.comments.last.user.username
+    - @comment = post.comments.last
+    = @comment.user.username
 
   %hr
