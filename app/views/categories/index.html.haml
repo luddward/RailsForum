@@ -1,6 +1,7 @@
-
-%h2 Forum
-
+.page-header
+  %h1
+    Furious Legion
+    %small Forum
 %table.table.table-hover
   %thead
     %tr
@@ -24,5 +25,4 @@
             %p
               by
               = @post.user.username
-          - else
-            0
+

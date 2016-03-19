@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Latest Users
+
+  .panel-body
+    -@latestUsers.each do |user|
+      %p
+        = user.username
+        registered
+        = time_ago_in_words(user.created_at)
+        ago

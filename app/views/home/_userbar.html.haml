@@ -1,32 +1,51 @@
-.row
-  - if user_signed_in?
-    .col-md-3
-      .panel.panel-primary
-        .panel-heading
-          .row
-            .col-xs-3
-              %i.glyphicon.glyphicon-comment.header-icon
-            .col-xs-9.text-right
-              .header-icon
-                = current_user.posts.count
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title User Panel
 
-        .panel-footer
-          %span.pull-left View your posts
-          %span.pull-right
-            %i.glyphicon.glyphicon-arrow-right
-          .clearfix
+  .panel-body
+    .row
+      .col-md-4
+        .panel.panel-primary
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-comment.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  = current_user.posts.count
 
-    .col-md-3
-      .panel.panel-success
-        .panel-heading
-          .row
-            .col-xs-3
-              %i.glyphicon.glyphicon-envelope.header-icon
-            .col-xs-9.text-right
-              .header-icon
-                21
-        .panel-footer
-          %span.pull-left View Inbox
-          %span.pull-right
-            %i.glyphicon.glyphicon-arrow-right
-          .clearfix
+          .panel-footer
+            %span.pull-left View your posts
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix
+
+      .col-md-4
+        .panel.panel-success
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-envelope.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  21
+          .panel-footer
+            %span.pull-left View Inbox
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix
+
+      .col-md-4
+        .panel.panel-info
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-user.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  57
+          .panel-footer
+            %span.pull-left View your profile
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix

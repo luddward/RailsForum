@@ -1,0 +1,81 @@
+.panel.panel-danger
+  .panel-heading
+    %h3.panel-title Admin bar
+
+  .panel-body
+    .row
+      .col-md-2
+        .panel.panel-danger
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-alert.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  = current_user.posts.count
+
+          .panel-footer
+            %span.pull-left View complaints
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix
+
+      .col-md-2
+        .panel.panel-danger
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-user.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  21
+          .panel-footer
+            %span.pull-left Manage users
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix
+
+      .col-md-2
+        .panel.panel-info
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-list.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  = Category.count
+          .panel-footer
+            %span.pull-left Manage Categories
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix
+
+      .col-md-2
+        .panel.panel-info
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-bullhorn.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  57
+          .panel-footer
+            %span.pull-left Create Announcements
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix
+
+      .col-md-4
+        .panel.panel-info
+          .panel-heading
+            .row
+              .col-xs-3
+                %i.glyphicon.glyphicon-wrench.header-icon
+              .col-xs-9.text-right
+                .header-icon
+                  = User.count
+          .panel-footer
+            %span.pull-left Forum Statistics
+            %span.pull-right
+              %i.glyphicon.glyphicon-arrow-right
+            .clearfix

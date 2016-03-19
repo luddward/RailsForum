@@ -1,0 +1,14 @@
+%footer.footer
+  .container-fluid
+    - @usercount = User.all.count
+    - @postCount = Post.all.count
+    - @replyCount = Comment.all.count
+    %p.text-center
+      The site has
+      = @usercount
+      users registered,
+      = @postCount
+      threads and
+      = @replyCount
+      replies
+    %p.text-center Ludwig Andersson &copy; 2016

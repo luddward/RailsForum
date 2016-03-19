@@ -1,18 +1,8 @@
-.panel.panel-primary
-  .panel-heading
-    %h3.panel-title
-      General Discussion
+.page-header
+  %h1
+    Furious Legion
+    %small Latest Posts
 
-  .panel-body
-    - @posts.each do |post|
-      .panel.panel-default
-        .panel-heading
-          %h3.panel-title= link_to post.title, post
 
-        .panel-body
-          %small
-            Created
-            = time_ago_in_words(post.created_at)
-            ago
-            by
-            = post.user.username
+-@posts.each do |post|
+  %h3= post.title
