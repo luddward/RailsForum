@@ -1,15 +1,29 @@
-%h1= @category.name
-%hr
-
+.page-header
+  %h1
+    Forum
+    %small
+      =@category.name
 - @category.posts.each do |post|
   %h2= link_to post.title, post_path(post)
 
   %p
     Replies:
     = post.comments.count
-  %p
-    Latest reply by
-    - @comment = post.comments.last
-    = @comment.user.username
+  - if post.comments.count > 0
+    %p
+      Latest reply by
+      - @comment = post.comments.last
+      = @comment.user.username
 
   %hr
+
+.btn-group
+
+  = link_to categories_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to categories
+
+
+  = link_to new_post_path, class: 'btn btn-primary' do
+    %i.glyphicon.glyphicon-plus
+    New Post

@@ -23,3 +23,9 @@
   .panel-footer
     %h3 Reply to thread
     = render 'comments/form'
+
+
+= link_to category_path(@post.category), class: 'btn btn-warning' do
+  %i.glyphicon.glyphicon-circle-arrow-left
+  Back to
+  = @post.category.name

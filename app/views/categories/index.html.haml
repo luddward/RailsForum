@@ -17,7 +17,7 @@
         %th
           = category.posts.count
         %th
-          = 100 + 10
+          = Post.get_total_number_of_posts(category.id)
         %th
           - if category.posts.count > 0
             - @post = category.posts.last
@@ -26,3 +26,7 @@
               by
               = @post.user.username
 
+
+= link_to root_path, class: 'btn btn-warning' do
+  %i.glyphicon.glyphicon-circle-arrow-left
+  Back to Dashboard
