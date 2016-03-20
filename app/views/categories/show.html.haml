@@ -1,23 +1,33 @@
 .page-header
   %h1
     Forum
-    %small
-      =@category.name
+    %small= @category.name
 
-- @posts.each do |post|
-  %h2= link_to post.title, post_path(post)
+%table.table.table-hover
+  %thead
+    %tr
+      %th Topic
+      %th Created by
+      %th Replies
+      %th Latest reply
+      %th Date created
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %th
+          = link_to post.title, post_path(post)
+        %th
+          = post.user.username
+        %th
+          = post.comments.all.count
+        %th
+          - if post.comments.count > 0
+            = time_ago_in_words(post.comments.last.created_at)
+            ago
+        %th
+          = post.created_at
 
-  %p
-    Replies:
-    = post.comments.count
-  - if post.comments.count > 0
-    %p
-      Latest reply by
-      - @comment = post.comments.last
-      = @comment.user.username
-
-  %hr
-
+%hr
 .btn-group
 
   = link_to categories_path, class: 'btn btn-warning' do
