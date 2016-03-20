@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @posts = @category.posts.all.order('created_at DESC')
   end
 
   def edit

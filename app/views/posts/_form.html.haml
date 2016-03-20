@@ -1,5 +1,5 @@
 = simple_form_for @post do |f|
   = f.input :title, required: true, :placeholder => 'Topic', autofocus: true
   = f.input :content, required: true, :placeholder => 'What would you like to talk about?'
-  = f.association :category, required: true, :collection => @categories
+  = f.association :category, required: true, :collection => Category.all, include_blank: false
   = f.submit :class => 'btn btn-primary'

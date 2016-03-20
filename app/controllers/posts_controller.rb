@@ -16,7 +16,6 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
-    @categories = Category.all
   end
 
   def create

@@ -3,13 +3,15 @@
     %h3.panel-title Recent Posts
 
   .panel-body
-    -@latestPosts.each do |post|
-      = link_to post.title, post_path(post)
-      by
-      =post.user.username
-      =time_ago_in_words(post.created_at)
-      ago in
-      = link_to post.category.name, category_path(post.category)
+    %ul
+      -@latestPosts.each do |post|
+        %li
+          = link_to post.title, post_path(post)
+          by
+          =post.user.username
+          =time_ago_in_words(post.created_at)
+          ago in
+          = link_to post.category.name, category_path(post.category)
   .panel-footer
     .btn-block
       = link_to 'View all new posts', posts_path

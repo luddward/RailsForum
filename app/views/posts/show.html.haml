@@ -1,3 +1,9 @@
+.page-header
+  %h1
+    Furious Legion
+    %small
+      = @post.category.name
+
 .panel.panel-default
 
   .panel-body
@@ -21,8 +27,11 @@
     = render @post.comments
 
   .panel-footer
-    %h3 Reply to thread
-    = render 'comments/form'
+    -if user_signed_in?
+      %h3 Reply to thread
+      = render 'comments/form'
+    - else
+      %p You need to sign in to have reply to this post
 
 
 = link_to category_path(@post.category), class: 'btn btn-warning' do
