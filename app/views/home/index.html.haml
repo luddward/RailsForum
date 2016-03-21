@@ -4,15 +4,11 @@
     %small Dashboard
 
 -if user_signed_in?
-  = render :partial => 'home/adminbar'
+
+  - if current_user.admin?
+    = render :partial => 'home/adminbar'
+
   = render :partial => 'home/userbar'
-- else
-  .alert.alert-warning
-    %button.close{ :data => { :dismiss => "alert" } } &times;
-    To gain access to the full site, please
-    = link_to 'Login', new_user_session_path
-    or
-    = link_to 'Register', new_user_registration_path
 
 .row
   .col-md-8
