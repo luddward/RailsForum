@@ -20,14 +20,15 @@
       .panel-heading
         %h3.panel-title Announcements
 
+      - @articles = Article.all.order('created_at DESC').limit(5)
       .panel-body
-        %h2 Beta out now!
-        %p sdadadasdasdasdsa
-
-        %hr
-
-        %h2 Alpha released!
-        %p sdasdasdas
+        - @articles.each do |article|
+          %h2= article.title
+          %p= article.content
+          %small
+            = time_ago_in_words(article.created_at)
+            ago
+          %hr
 
   .col-md-4
     = render :partial => 'home/recent_posts'

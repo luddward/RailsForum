@@ -1,0 +1,19 @@
+.page-header
+  %h1
+    = AppConstants::APP_NAME
+    %small Latest Announcements
+
+
+-@articles.each do |article|
+  %h2= link_to article.title, article_path(article)
+  %p= article.content
+  %hr
+
+.btn-group
+  = link_to root_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to Dashboard
+
+  = link_to new_article_path, class: 'btn btn-primary' do
+    %i.glyphicon.glyphicon-plus-sign
+    New Article

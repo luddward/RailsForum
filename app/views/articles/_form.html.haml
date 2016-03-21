@@ -1,0 +1,15 @@
+.page-header
+  %h1
+    = AppConstants::APP_NAME
+    %small New Article
+
+= simple_form_for(@article) do |f|
+  = f.input :title
+  = f.input :content
+  = f.submit :class => 'btn btn-primary'
+
+%hr
+.btn-group
+  = link_to categories_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to Articles

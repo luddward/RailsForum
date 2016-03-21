@@ -58,12 +58,13 @@
                 %i.glyphicon.glyphicon-bullhorn.header-icon
               .col-xs-9.text-right
                 .header-icon
-                  57
-          .panel-footer
-            %span.pull-left Create Announcements
-            %span.pull-right
-              %i.glyphicon.glyphicon-arrow-right
-            .clearfix
+                  = Article.count
+          %a{ href: new_article_path }
+            .panel-footer
+              %span.pull-left Create Announcement
+              %span.pull-right
+                %i.glyphicon.glyphicon-arrow-right
+              .clearfix
 
       .col-md-4
         .panel.panel-info

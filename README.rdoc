@@ -7,6 +7,8 @@ Things you may want to cover:
 
 * Ruby version
 
+* Rails version
+
 * System dependencies
 
 * Configuration
