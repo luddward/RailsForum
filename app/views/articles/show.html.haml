@@ -1,0 +1,15 @@
+.page-header
+  %h1
+    = AppConstants::APP_NAME
+    %small Announcements
+
+
+%h2= @article.title
+%p= @article.content
+
+
+%hr
+.btn-group
+  = link_to articles_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to Articles
