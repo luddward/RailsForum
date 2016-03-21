@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
 
   validates :category, presence: true
 
+  # validates_associated :comments
 
   #
   def self.get_total_number_of_posts (category_id)
