@@ -4,3 +4,52 @@
     %small
       =@user.username
 
+.row
+  .col-md-4.card
+    // Profile picture
+    %img.img-responsive.img-circle.profile-picture(src="http://lorempixel.com/600/600/city/")
+
+    .row
+      .card-item
+        %p.card-text.large-text= @user.username
+        %p.card-text Ludwig Andersson
+
+        %p.card-text
+          %span
+            %i.glyphicon.glyphicon-user
+            User
+    %hr
+
+    .row
+      %p.card-text Posts
+      .col-md-6
+        .card-item.card-text
+          %p.post-counter= @user.posts.count
+          %p this week
+
+      .col-md-6
+        .card-item.card-text
+          %p.post-counter= @user.posts.count
+          %p in total
+    %hr
+
+  .col-md-8
+    %h2 Threads
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Topic
+          %th Category
+          %th Age
+      %tbody
+        - @user.posts.each do |post|
+          %tr
+            %th
+              = link_to post.title, post_path(post)
+            %th
+              = link_to post.category.name, category_path(post.category)
+
+            %th
+              = time_ago_in_words(post.created_at)
+              ago
+

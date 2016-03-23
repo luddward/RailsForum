@@ -1,3 +1,43 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-picture {
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: white;
+  padding: 2em;
+}
+
+.card-item {
+  padding: 2em;
+}
+
+.card-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.post-counter {
+  margin: 0 auto;
+  font-size: 2em;
+  font-weight: bold;
+  color: greenyellow;
+}
+
+.post-text {
+  margin: 0 auto;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.large-text {
+  font-size: 2em;
+}
