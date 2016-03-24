@@ -7,7 +7,7 @@
 .row
   .col-md-4.card
     // Profile picture
-    %img.img-responsive.img-circle.profile-picture(src="http://lorempixel.com/600/600/city/")
+    = image_tag current_user.avatar.url, :class => 'img-responsive img-rounded profile-picture'
 
     .row
       .card-item
@@ -15,7 +15,6 @@
         %p.card-text
           = @user.first_name
           = @user.last_name
-
 
         %p.card-text
           %span
@@ -39,13 +38,8 @@
   .col-md-8
     %h2 Threads
     %table.table.table-hover
-      %thead
-        %tr
-          %th Topic
-          %th Category
-          %th Age
       %tbody
-        - @user.posts.each do |post|
+        - @user.posts.order('created_at DESC').each do |post|
           %tr
             %th
               = link_to post.title, post_path(post)
