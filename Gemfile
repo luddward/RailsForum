@@ -12,15 +12,37 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'jquery-turbolinks', '~> 2.1'
+
+# Simple form generation
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+
+# User management
 gem 'devise', '~> 3.5', '>= 3.5.6'
+
+# Pagination for bootstrap
 gem 'will_paginate-bootstrap'
+
+# Validation for controllers
 gem 'validates'
+
+#File uploads
 gem 'carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Testing framework
+  gem 'rspec-rails', '~> 3.4'
+
+  # Simulates real user interaction
+  gem 'capybara'
+
+  # Generating test data
+  gem 'faker', '~> 1.6', '>= 1.6.3'
+
+  # Generating
+  gem 'factory_girl_rails', '~> 4.5'
 end
 
 group :development do
