@@ -16,7 +16,7 @@ RSpec.describe ArticlesController, :type => :controller do
   end
 
   # Tests getting the new function as a regular user.
-  describe 'GET #new as User' do
+  describe 'GET #new as user' do
     login_user
     it 'redirects to root path with alert message' do
       get :new
@@ -26,7 +26,7 @@ RSpec.describe ArticlesController, :type => :controller do
   end
 
   # Tests getting the new function as an Admin.
-  describe 'GET #new as Admin' do
+  describe 'GET #new as admin' do
     login_admin
     it 'responds with an HTTP 200 status code' do
       get :new
