@@ -1,9 +1,10 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  content: MyText
+postone:
+  title: Welcome
+  content: Welcome to the forum, this post is done by Tom
+  user: tom
 
-two:
-  title: MyString
-  content: MyText
+posttwo:
+  title: Intro luddward
+  content: Hiii! My name is loyd
+  user: ludde
