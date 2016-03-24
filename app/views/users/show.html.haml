@@ -12,7 +12,10 @@
     .row
       .card-item
         %p.card-text.large-text= @user.username
-        %p.card-text Ludwig Andersson
+        %p.card-text
+          = @user.first_name
+          = @user.last_name
+
 
         %p.card-text
           %span
