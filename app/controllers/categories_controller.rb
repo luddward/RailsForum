@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 
   before_action :find_category, except: [:index, :new, :create]
 
+  before_action :validate_admin, except: [:index,:show]
   def index
     @categories = Category.all.order('name DESC')
   end
@@ -41,7 +42,14 @@ class CategoriesController < ApplicationController
 
   end
 
+
   private
+
+  def validate_admin
+    unless current_user.admin?
+      redirect_to root_path, :alert => 'The requested feature is not available to you'
+    end
+  end
 
   def find_category
     @category = Category.find(params[:id])

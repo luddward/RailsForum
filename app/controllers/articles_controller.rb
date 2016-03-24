@@ -1,14 +1,15 @@
 class ArticlesController < ApplicationController
+
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  before_action :validate_admin, except: [:show, :index]
+
   # GET /articles
-  # GET /articles.json
   def index
     @articles = Article.all.order('created_at DESC')
   end
 
   # GET /articles/1
-  # GET /articles/1.json
   def show
   end
 
@@ -54,6 +55,12 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+    def validate_admin
+      unless current_user.admin?
+        redirect_to root_path, :alert => 'You are not allowed to do that'
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])

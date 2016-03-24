@@ -1,0 +1,61 @@
+.page-header
+  %h1
+    = AppConstants::APP_NAME
+    %small
+      =@user.username
+
+.row
+  .col-md-4.card
+    // Profile picture
+    = image_tag current_user.avatar.url, :class => 'img-responsive img-rounded profile-picture'
+
+    .row
+      .card-item
+        %p.card-text.large-text= @user.username
+        %p.card-text
+          = @user.first_name
+          = @user.last_name
+
+        %p.card-text
+          %span
+            %i.glyphicon.glyphicon-user
+            User
+    %hr
+
+    .row
+      %p.card-text Posts
+      .col-md-6
+        .card-item.card-text
+          %p.post-counter= @user.posts.count
+          %p this week
+
+      .col-md-6
+        .card-item.card-text
+          %p.post-counter= @user.posts.count
+          %p in total
+    %hr
+
+  .col-md-8
+    %h2 Threads
+    %table.table.table-hover
+      %tbody
+        - @user.posts.order('created_at DESC').each do |post|
+          %tr
+            %th
+              = link_to post.title, post_path(post)
+            %th
+              = link_to post.category.name, category_path(post.category)
+
+            %th
+              = time_ago_in_words(post.created_at)
+              ago
+
+%hr
+.btn-group
+  = link_to root_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to Dashboard
+  - if current_user = @user
+    = link_to edit_user_registration_path, class: 'btn btn-primary' do
+      %i.glyphicon.glyphicon-wrench
+      Edit Profile
