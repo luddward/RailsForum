@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :home
-  resources :categories
+
+  authenticate :user do
+    resources :categories, only: [:new, :create, :edit, :destroy, :update]
+  end
+  resources :categories, only: [:index, :show]
 
   resources :posts do
     resources :comments
