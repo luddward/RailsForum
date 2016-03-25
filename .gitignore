@@ -17,3 +17,6 @@
 /log/*
 !/log/.keep
 /tmp
+chef/cookbooks
+chef/tmp
+chef/Cheffile.lock
