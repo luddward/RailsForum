@@ -23,4 +23,29 @@ RSpec.describe CategoriesController, type: :controller do
       expect(response).to redirect_to(new_user_session_path)
     end
   end
+
+  describe 'GET #new as User' do
+    login_user
+
+    it 'should respond with a redirect' do
+      get :new
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to(root_path)
+    end
+
+  end
+
+  describe 'GET #new as Admin' do
+    login_admin
+    it 'should respond with a 200 OK' do
+      get :new
+      expect(response).to have_http_status(200)
+      expect(response).to be_success
+    end
+
+    it 'should render the new template' do
+      get :new
+      expect(response).to render_template('new')
+    end
+  end
 end

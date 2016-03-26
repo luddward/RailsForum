@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/FuriousForum.iml" filepath="$PROJECT_DIR$/.idea/FuriousForum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RailsForum.iml" filepath="$PROJECT_DIR$/.idea/RailsForum.iml" />
     </modules>
   </component>
 </project>
