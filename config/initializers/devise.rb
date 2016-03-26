@@ -19,6 +19,8 @@ Devise.setup do |config|
   # Setup a pepper to generate the encrypted password.
   # config.pepper = 'a424e5c8ef5b959701a10c9b5dad59cc763ff61f6d81e5181ad8aef9a23bf94795a3ea12e187f1bf82c51f6cb1a02549e14cf832f6d7dc21900d3a90aff4d54e'
 
+  config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.production?
+
   config.reconfirmable = true
 
   config.expire_all_remember_me_on_sign_out = true
