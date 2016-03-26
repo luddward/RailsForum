@@ -11,6 +11,8 @@ Things you may want to cover:
 
 * Rails version
 
+* Building
+
 * System dependencies
 
 * Configuration
