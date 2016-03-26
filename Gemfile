@@ -41,8 +41,11 @@ group :development, :test do
   # Generating test data
   gem 'faker', '~> 1.6', '>= 1.6.3'
 
-  # Generating
+  # Generating objects
   gem 'factory_girl_rails', '~> 4.5'
+
+  # Cleaning the database
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end
 
 group :development do

@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:login]
 
-  has_many :posts
-  has_many :comments
+  has_many :posts, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
 
   validate :validate_username
 

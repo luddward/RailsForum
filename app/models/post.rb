@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
-  has_many :comments
+
+  has_many :comments, :dependent => :delete_all
 
   validates :title, length: {minimum: 5,
             message: 'Title needs to be longer than 5 characters' }
@@ -10,6 +11,11 @@ class Post < ActiveRecord::Base
             message: 'You need more than 10 characters in the content'}
 
   validates :category, presence: true
+
+  validates :user, presence: true
+
+  validates_presence_of :user
+  validates_presence_of :category
 
   # validates_associated :comments
 
