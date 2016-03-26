@@ -1,4 +1,6 @@
-== README
+#Rails Forum
+
+[ ![Codeship Status for luddward/RailsForum](https://codeship.com/projects/70fc5840-d52f-0133-9592-62b26f0411ab/status?branch=master)](https://codeship.com/projects/142572)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -24,7 +26,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
