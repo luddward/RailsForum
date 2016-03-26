@@ -32,6 +32,8 @@ gem 'carrierwave'
 gem 'redcarpet'
 gem 'coderay'
 
+
+
 group :development, :test do
   # Testing framework
   gem 'rspec-rails', '~> 3.4'
@@ -52,6 +54,13 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+
+  gem 'capistrano-rails', '~> 1.1'
+
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
