@@ -6,9 +6,10 @@
 
 .panel.panel-default
 
+  .panel-heading
+    %h3.panel-title= @post.title
   .panel-body
-    %h2= @post.title
-    %p= @post.content
+    = markdown(@post.content)
 
     %small
       = time_ago_in_words(@post.created_at)
