@@ -2,7 +2,10 @@ class CategoriesController < ApplicationController
 
   before_action :find_category, except: [:index, :new, :create]
 
+  before_action :authenticate_user!, except: [:index, :show]
+
   before_action :validate_admin, except: [:index,:show]
+
   def index
     @categories = Category.all.order('name DESC')
   end
