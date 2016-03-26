@@ -40,4 +40,39 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe 'Lock thread as Guest' do
+
+    it 'should redirect to sign_in page' do
+      @post = FactoryGirl.create(:post)
+      post :lock, :id => @post.id
+
+      expect(response).to have_http_status(302)
+      expect(response).to_not have_http_status(200)
+      expect(response).to redirect_to(new_user_session_path)
+      expect(@post.locked).to eql(false)
+    end
+  end
+
+  describe 'Lock thread as User' do
+    login_user
+
+    it 'should redirect to sign_in page' do
+      @post = FactoryGirl.create(:post)
+      post :lock, :id => @post.id
+
+      expect(response).to redirect_to(post_path(@post))
+      expect(@post.locked).to eql(false)
+    end
+  end
+
+  describe 'Lock thread as Admin' do
+    login_admin
+
+    it 'should redirect and thread should be locked' do
+      @post = FactoryGirl.create(:post)
+      post :lock, :id => @post.id
+      expect(response).to redirect_to(post_path(@post))
+    end
+  end
+
 end
