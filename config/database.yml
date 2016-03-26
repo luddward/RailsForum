@@ -21,5 +21,11 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: mysql
+  encoding: utf8
+  database: furiouslegion
+  username: furious_user
+  password: legion
+  host: localhost
+  port: 3306
+  pool: 10
