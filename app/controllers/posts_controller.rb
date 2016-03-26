@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :lock, :unlock]
 
   before_action :authenticate_user!, except: [:index, :show]
 
-  before_action :validate_user, only: [:edit, :update, :destroy]
+  before_action :validate_user, only: [:edit, :update, :destroy, :lock, :unlock]
 
   def index
     @posts = Post.all.order('created_at DESC')
@@ -43,6 +43,20 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to root_path
+  end
+
+  # POST
+  def lock
+    @post.locked = true
+    @post.save
+    redirect_to @post, :notice => 'Thread locked'
+  end
+
+  # POST
+  def unlock
+    @post.locked = false
+    @post.save
+    redirect_to @post, :notice => 'Thread unlocked'
   end
 
   private

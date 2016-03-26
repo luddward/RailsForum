@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
 
   resources :posts do
+    member do
+      post :lock
+      post :unlock
+    end
     resources :comments
   end
 
