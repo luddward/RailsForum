@@ -9,7 +9,7 @@ FactoryGirl.define do
     admin                 false
     password              'password'
     password_confirmation 'password'
-    avatar                File.open(File.join(Rails.root, '/public/default-user.png'))
+    avatar                File.open(File.join(Rails.root, '/spec/support/default-user.png'))
   end
 
   # This will use the User class (Admin would have been guessed)
@@ -21,7 +21,7 @@ FactoryGirl.define do
     admin                 true
     password              'password'
     password_confirmation 'password'
-    avatar                File.open(File.join(Rails.root, '/public/default-user.png'))
+    avatar                File.open(File.join(Rails.root, '/spec/support/default-user.png'))
   end
 
   factory :category, class: Category do
