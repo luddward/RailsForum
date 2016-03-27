@@ -33,8 +33,8 @@ gem 'redcarpet'
 
 gem 'coderay'
 
+# Deployment
 gem 'capistrano-rails', '~> 1.1'
-
 gem 'capistrano',         require: false
 gem 'capistrano-rvm',     require: false
 gem 'capistrano-bundler', require: false
