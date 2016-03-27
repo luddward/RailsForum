@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
 
   validate :validate_username
 
-  validates_presence_of   :avatar
-  validates_integrity_of  :avatar
-  validates_processing_of :avatar
+  # validates_presence_of   :avatar
+  # validates_integrity_of  :avatar
+  # validates_processing_of :avatar
 
   def validate_username
     if User.where(email: username).exists?

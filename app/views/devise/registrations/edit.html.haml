@@ -1,34 +1,69 @@
-%h1 Edit Profile
-
+.page-header
+  %h1
+    = AppConstants::APP_NAME
+    %small
+      Edit profile
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :email, required: true, autofocus: true
+    .row
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title Account Information
+          .panel-body
+            - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+              %p
+                Currently waiting confirmation for:
+                = resource.unconfirmed_email
 
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      %p
-        Currently waiting confirmation for:
-        = resource.unconfirmed_email
+            = f.input :email, required: true, autofocus: true
+            = f.input :first_name
+            = f.input :last_name
 
-    - if current_user.avatar.url.present?
-      = image_tag(current_user.avatar.url)
-      = f.label :remove_avatar do
-        = f.check_box :remove_avatar
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title Password
+          .panel-body
+            = f.input :password, autocomplete: 'off', hint: "leave it blank if you don't want to change it", required: false
+            = f.input :password_confirmation, required: false
 
-    = f.file_field :avatar
-    = f.hidden_field :avatar_cache
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :password, autocomplete: 'off', hint: "leave it blank if you don't want to change it", required: false
-    = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: 'we need your current password to confirm your changes', required: true
-    = f.button :submit, 'Update'
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title Profile Picutre
+          .panel-body
+            - if current_user.avatar.url.present?
+              = image_tag(current_user.avatar.url, :class => 'img-responsive img-rounded img-small')
+            %hr
+            = f.file_field :avatar
+            = f.hidden_field :avatar_cache
 
-%h3 Cancel my account
 
-%p
-  Unhappy?
-  = link_to 'Cancel my account', registration_path(resource_name), data: {confirm: 'Are you sure?' }, method: :delete
 
-= link_to 'Back', :back
+    .row
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title Update
+          .panel-body
+            = f.input :current_password, hint: 'we need your current password to confirm your changes', required: true
+            = f.button :submit, 'Update', :class=> 'btn btn-primary'
+
+
+.row
+  .col-md-6
+    .panel.panel-danger
+      .panel-heading
+        %h3.panel-title Account Cancellation
+
+      .panel-body
+        = link_to 'Cancel my account', registration_path(resource_name), data: {confirm: 'Are you sure?' }, method: :delete, :class => 'btn btn-danger'
+
+
+%hr
+.btn-group
+  = link_to user_path(current_user), class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to Profile

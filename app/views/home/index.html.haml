@@ -20,7 +20,7 @@
       .panel-body
         - @articles.each do |article|
           %h2= article.title
-          %p= article.content
+          %p= markdown(article.content)
           %small
             = time_ago_in_words(article.created_at)
             ago
