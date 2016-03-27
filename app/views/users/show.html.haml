@@ -7,7 +7,7 @@
 .row
   .col-md-4.card
     // Profile picture
-    = image_tag current_user.avatar.url, :class => 'img-responsive img-rounded profile-picture'
+    = image_tag @user.avatar.url, :class => 'img-responsive img-rounded profile-picture'
 
     .row
       .card-item

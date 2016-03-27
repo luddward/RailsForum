@@ -4,15 +4,16 @@
     %small
       = @post.category.name
 
-.panel.panel-danger
-  .panel-heading
-    %h3.panel-title  Admin Actions
+- if user_signed_in? and current_user.admin?
+  .panel.panel-danger
+    .panel-heading
+      %h3.panel-title  Admin Actions
 
-  .panel-body
-    - if !@post.locked
-      = link_to 'Lock thread', lock_post_path(@post), method: :post, :class => 'btn btn-danger'
-    - else
-      = link_to 'Unlock thread', unlock_post_path(@post), method: :post, :class => 'btn btn-success'
+    .panel-body
+      - if !@post.locked
+        = link_to 'Lock thread', lock_post_path(@post), method: :post, :class => 'btn btn-danger'
+      - else
+        = link_to 'Unlock thread', unlock_post_path(@post), method: :post, :class => 'btn btn-success'
 
 
 .panel.panel-default
