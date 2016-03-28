@@ -13,7 +13,7 @@
         = link_to 'Delete', [comment.post, comment],
                method:  :delete, data: {confirm: 'Are you sure?'}
     .col-md-10
-      %p= comment.comment
+      %p= markdown(comment.comment)
 
       %small
         = time_ago_in_words(comment.created_at)
