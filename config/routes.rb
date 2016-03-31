@@ -8,6 +8,14 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources :categories, only: [:new, :create, :edit, :destroy, :update]
+
+    scope '/admin' do
+
+      resource :users, only: [:user_manager] do
+        get :user_manager
+      end
+    end
+
   end
   resources :categories, only: [:index, :show]
 
