@@ -1,9 +1,39 @@
-.page-header
-  %h1
-    = AppConstants::APP_NAME
-    %small
-      User Management
+- if current_user.admin?
+  .page-header
+    %h1
+      = AppConstants::APP_NAME
+      %small User Manager
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Username
+        %th Full Name
+        %th Email
+        %th Posts
+        %th Ban
+        %th Remove
+    %tbody
+      - @users.each do |user|
+        %tr
+          %th
+            = link_to user.username, user_path(user)
+          %th
+            = user.first_name
+            = user.last_name
+          %th
+            = user.email
+          %th
+            = user.posts.count
+          %th
+            = link_to root_path, class: 'btn btn-danger' do
+              %i.glyphicon.glyphicon-exclamation-sign
+              Ban
+          %th
+            = link_to root_path, class: 'btn btn-danger' do
+              %i.glyphicon.glyphicon-exclamation-sign
+              Remove
 
-- @users.each do |user|
-  %h3= link_to user.username, user_path(user)
-  %hr
+
+  = link_to root_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to Dashboard
