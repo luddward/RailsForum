@@ -26,7 +26,11 @@
               by
               = @post.user.username
 
-
-= link_to root_path, class: 'btn btn-warning' do
-  %i.glyphicon.glyphicon-circle-arrow-left
-  Back to Dashboard
+.btn-group
+  = link_to root_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to Dashboard
+  - if current_user.admin?
+    = link_to new_category_path, class: 'btn btn-primary' do
+      %i.glyphicon.glyphicon-plus
+      New Category
