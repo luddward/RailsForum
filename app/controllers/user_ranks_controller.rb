@@ -29,7 +29,7 @@ class UserRanksController < ApplicationController
   end
 
   def update
-    if @userrank.update(category_params)
+    if @userrank.update(rank_params)
       redirect_to user_rank_path(@userrank), notice: 'You successfully updated the user rank'
     else
       render 'user_ranks/edit'

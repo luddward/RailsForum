@@ -3,3 +3,14 @@
     = AppConstants::APP_NAME
     %small
       = @userrank.name
+
+
+%hr
+.btn-group
+  = link_to user_ranks_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to User Groups
+
+  = link_to edit_user_rank_path(@userrank), class: 'btn btn-default' do
+    %i.glyphicon.glyphicon-wrench
+    Edit

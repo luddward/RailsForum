@@ -41,7 +41,11 @@
               %i.glyphicon.glyphicon-exclamation-sign
               Remove
 
+  .btn-group
+    = link_to root_path, class: 'btn btn-warning' do
+      %i.glyphicon.glyphicon-circle-arrow-left
+      Back to Dashboard
 
-  = link_to root_path, class: 'btn btn-warning' do
-    %i.glyphicon.glyphicon-circle-arrow-left
-    Back to Dashboard
+    = link_to user_ranks_path, class: 'btn btn-default' do
+      %i.glyphicon.glyphicon-wrench
+      Manage User Groups

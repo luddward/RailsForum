@@ -10,6 +10,7 @@
       %th Rank Name
       %th Level
       %th User Count
+      %th Operations
   %tbody
     - @userranks.each do |rank|
       %tr
@@ -17,6 +18,17 @@
           = link_to rank.name, user_rank_path(rank)
         %th
           = rank.level
+
+        %th
+          Not implemented yet
+
+        %th
+          = link_to edit_user_rank_path(rank), class: 'btn btn-default' do
+            %i.glyphicon.glyphicon-adjust
+            Edit
+          = link_to root_path, class: 'btn btn-danger' do
+            %i.glyphicon.glyphicon-exclamation-sign
+            Remove
 
 %hr
 .btn-group
