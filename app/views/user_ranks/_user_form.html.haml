@@ -1,0 +1,3 @@
+= simple_form_for @user, :url => { :action => 'save_user_rank' }  do |f|
+  = f.input :user_rank, required: true, :collection => UserRank.all.order('level DESC'), include_blank: false
+  = f.submit :class => 'btn btn-primary'

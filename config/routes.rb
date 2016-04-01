@@ -11,6 +11,13 @@ Rails.application.routes.draw do
 
     scope '/admin' do
 
+      resources :user_ranks do
+        member do
+          get :change_rank
+          patch :save_user_rank
+        end
+      end
+
       resource :users, only: [:user_manager] do
         get :user_manager
       end
