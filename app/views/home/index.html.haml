@@ -2,6 +2,9 @@
   %h1
     = AppConstants::APP_NAME
     %small Dashboard
+.panel-default
+  .panel-body
+    =render :partial => 'home/searchbar'
 
 -if user_signed_in?
 

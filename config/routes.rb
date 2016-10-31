@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search/index'
+
   resources :articles
   devise_for :users
 
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
     get :show_posts
   end
   resources :home
+  resources :search
 
   authenticate :user do
     resources :categories, only: [:new, :create, :edit, :destroy, :update]

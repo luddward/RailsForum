@@ -34,5 +34,4 @@ class Post < ActiveRecord::Base
     end
     return i
   end
-
 end
