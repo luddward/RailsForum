@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :posts, :dependent => :delete_all
   has_many :comments, :dependent => :delete_all
 
+  has_one :user_rank
+
   validate :validate_username
 
   # validates_presence_of   :avatar
@@ -33,6 +35,7 @@ class User < ActiveRecord::Base
     @login || self.username || self.email
   end
 
+  # For allowing login with both email and
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
@@ -45,5 +48,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 end

@@ -29,11 +29,12 @@
               .col-xs-9.text-right
                 .header-icon
                   = User.count
-          .panel-footer
-            %span.pull-left Manage users
-            %span.pull-right
-              %i.glyphicon.glyphicon-arrow-right
-            .clearfix
+          %a{ href: user_manager_users_path }
+            .panel-footer
+              %span.pull-left Manage users
+              %span.pull-right
+                %i.glyphicon.glyphicon-arrow-right
+              .clearfix
 
       .col-md-2
         .panel.panel-info

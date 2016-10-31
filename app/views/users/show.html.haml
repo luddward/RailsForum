@@ -16,10 +16,12 @@
           = @user.first_name
           = @user.last_name
 
-        %p.card-text
-          %span
-            %i.glyphicon.glyphicon-user
-            User
+        - if @user.user_rank != nil
+          %p.card-text
+            %span
+              %i.glyphicon.glyphicon-user
+              = @user.user_rank.name
+
     %hr
 
     .row

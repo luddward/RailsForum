@@ -1,30 +1,24 @@
-#Rails Forum
+#  Rails Forum
 
 [ ![Codeship Status for luddward/RailsForum](https://codeship.com/projects/70fc5840-d52f-0133-9592-62b26f0411ab/status?branch=master)](https://codeship.com/projects/142572)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Building
+Execute bundle install to install all the gems nessecary
+''' bundle install '''
 
-Things you may want to cover:
+### System dependencies
+Check gemfile
 
-* Ruby version
-
-* Rails version
-
-* Building
-
-* System dependencies
-
-* Configuration
+### Configuration
 
 * Database creation
 
-* Database initialization
+### Database initialization
+Rune rake to initialize the database
+''' rake db:schema:load '''
 
-* How to run the test suite
+### How to run the test suite
+Testing is done with RSPEC
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Deployment instructions
+Code is automatically deployed into production from the master branch if all tests pass.

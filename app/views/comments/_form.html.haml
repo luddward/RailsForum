@@ -1,3 +1,6 @@
-= simple_form_for([@post, @post.comments.build]) do |f|
-  = f.input :comment, :placeholder => 'Write a comment...'
-  = f.submit :class => 'btn btn-primary'
+.row
+  .col-md-4
+
+    = simple_form_for([@post, @post.comments.build]) do |f|
+      = f.input :comment, :placeholder => 'Write a comment...', :input_html => {:rows => 10}
+      = f.submit :class => 'btn btn-primary'

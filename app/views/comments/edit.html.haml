@@ -1,5 +1,5 @@
 %h1 Edit Reply
-
-= simple_form_for([@post,@comment]) do |f|
-  = f.input :comment
-  = f.submit
+.col-md-4
+  = simple_form_for([@post,@comment]) do |f|
+    = f.input :comment, :input_html => {:rows => 10}
+    = f.submit

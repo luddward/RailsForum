@@ -61,6 +61,7 @@ class ArticlesController < ApplicationController
         redirect_to root_path, :alert => 'You are not allowed to do that'
       end
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])

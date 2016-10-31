@@ -1,0 +1,51 @@
+- if current_user.admin?
+  .page-header
+    %h1
+      = AppConstants::APP_NAME
+      %small User Manager
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Group
+        %th Username
+        %th Full Name
+        %th Email
+        %th Posts
+        %th Ban
+        %th Remove
+    %tbody
+      - @users.each do |user|
+        %tr
+          %th
+            - if user.user_rank != nil
+              %p= link_to user.user_rank.name, user_rank_path(user.user_rank)
+              %p= link_to 'Change', change_rank_user_rank_path(user)
+            -else
+              %p None
+              = link_to 'Change', root_path
+          %th
+            = link_to user.username, user_path(user)
+          %th
+            = user.first_name
+            = user.last_name
+          %th
+            = user.email
+          %th
+            = user.posts.count
+          %th
+            = link_to root_path, class: 'btn btn-danger' do
+              %i.glyphicon.glyphicon-exclamation-sign
+              Ban
+          %th
+            = link_to root_path, class: 'btn btn-danger' do
+              %i.glyphicon.glyphicon-exclamation-sign
+              Remove
+
+  .btn-group
+    = link_to root_path, class: 'btn btn-warning' do
+      %i.glyphicon.glyphicon-circle-arrow-left
+      Back to Dashboard
+
+    = link_to user_ranks_path, class: 'btn btn-default' do
+      %i.glyphicon.glyphicon-wrench
+      Manage User Groups

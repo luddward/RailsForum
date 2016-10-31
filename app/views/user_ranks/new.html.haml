@@ -1,0 +1,15 @@
+.page-header
+  %h1
+    = AppConstants::APP_NAME
+    %small New User Rank
+
+.row
+  .col-md-6
+    = render 'user_ranks/form'
+
+%hr
+
+.btn-group
+  = link_to user_ranks_path, class: 'btn btn-warning' do
+    %i.glyphicon.glyphicon-circle-arrow-left
+    Back to User Ranks

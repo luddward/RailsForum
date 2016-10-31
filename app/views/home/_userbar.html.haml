@@ -15,10 +15,11 @@
                   = current_user.posts.count
 
           .panel-footer
-            %span.pull-left View your posts
-            %span.pull-right
-              %i.glyphicon.glyphicon-arrow-right
-            .clearfix
+            %a{ href: user_show_posts_path(current_user) }
+              %span.pull-left View your posts
+              %span.pull-right
+                %i.glyphicon.glyphicon-arrow-right
+              .clearfix
 
       .col-md-4
         .panel.panel-success

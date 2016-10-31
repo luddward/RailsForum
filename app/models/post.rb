@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+
   belongs_to :category
   belongs_to :user
 
@@ -33,5 +34,4 @@ class Post < ActiveRecord::Base
     end
     return i
   end
-
 end
