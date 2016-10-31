@@ -48,5 +48,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 end
