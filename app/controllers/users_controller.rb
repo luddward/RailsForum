@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
-  before_action :validate_admin, except: [:show]
+  before_action :validate_admin, except: [:show, :show_user_posts]
 
   # GET
   def show
@@ -11,6 +11,11 @@ class UsersController < ApplicationController
   # GET
   def user_manager
     @users = User.all
+  end
+
+  def show_posts
+    @user = User.find(params[:user_id])
+    @posts = @user.posts
   end
 
   private

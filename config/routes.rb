@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :articles
   devise_for :users
 
-  resources :users
+  resources :users do
+    get :show_posts
+  end
   resources :home
 
   authenticate :user do

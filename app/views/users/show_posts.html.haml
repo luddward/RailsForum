@@ -1,0 +1,20 @@
+.page-header
+  %h1
+    = AppConstants::APP_NAME
+    %small
+      =@user.username
+%h3
+  threads
+.col-md-8
+  %table.table.table-hover
+    %tbody
+      - @user.posts.order('created_at DESC').each do |post|
+        %tr
+          %th
+            = link_to post.title, post_path(post)
+          %th
+            = link_to post.category.name, category_path(post.category)
+
+          %th
+            = time_ago_in_words(post.created_at)
+            ago
