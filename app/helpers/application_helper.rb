@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+  # Handles flash types for CSS and boostrap
   def bootstrap_class_for(flash_type)
 
     case flash_type
@@ -16,6 +17,8 @@ module ApplicationHelper
     end
   end
 
+
+  # Markdown parser
   def markdown(text)
     markdown = Redcarpet::Markdown.new(RedcarpetHelper::HTMLBlockCode,
                                        no_intra_emphasis: true,
