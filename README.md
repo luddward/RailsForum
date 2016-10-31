@@ -14,8 +14,11 @@ Check gemfile
 * Database creation
 
 ### Database initialization
+Rune rake to initialize the database
+''' rake db:schema:load '''
 
 ### How to run the test suite
+Testing is done with RSPEC
 
 ### Deployment instructions
-Code is automatically deployed into prodoction from the master branch if all tests pass.
+Code is automatically deployed into production from the master branch if all tests pass.

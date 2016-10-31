@@ -32,7 +32,7 @@ gem 'validates'
 #File uploads
 gem 'carrierwave'
 
-#Markdown support
+# Markdown support
 gem 'redcarpet'
 
 gem 'coderay'
@@ -49,6 +49,7 @@ gem 'capistrano-secrets-yml', '~> 1.0.0'
 group :production do
   gem 'mysql2'
 end
+
 group :development, :test do
   # Testing framework
   gem 'rspec-rails', '~> 3.4'

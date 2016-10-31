@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :categories, only: [:new, :create, :edit, :destroy, :update]
 
     scope '/admin' do
-
       resources :user_ranks do
         member do
           get :change_rank
